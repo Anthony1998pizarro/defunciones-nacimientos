@@ -8,7 +8,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">INEC CONSULTs</a>
+  <a class="navbar-brand" href="/admin/consulta">INEC CONSULTs</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -16,20 +16,20 @@
   <div class="collapse navbar-collapse" id="navbarColor02">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item <?= $active[0] ?>">
-        <a class="nav-link" href="#">CONSULTAS</a>
+        <a class="nav-link" href="/admin/consulta">CONSULTAS</a>
       </li>
       <li class="nav-item <?= $active[1] ?>">
-        <a class="nav-link" href="#">VER GRAFICAS</a>
+        <a class="nav-link" href="/admin/graficas">VER GRAFICAS</a>
       </li>
-      <li class="nav-item <?= $active[1] ?>">
-        <a class="nav-link" href="#">GESTIONAR USUARIOS</a>
+      <li class="nav-item <?= $active[2] ?>">
+        <a class="nav-link" href="/admin/usuarios">GESTIONAR USUARIOS</a>
       </li>
     </ul>
   </div>
   <div class="my-2 my-lg-0">
   <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <label class="nav-link" >CERRAR SESION</label>
+        <a class="nav-link" href="/home" >CERRAR SESION</a>
       </li>
     </ul>
 </div>

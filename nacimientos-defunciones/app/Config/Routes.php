@@ -40,6 +40,9 @@ $routes->get('/user/graficas','User::graficas');
 $routes->get('/user','User::index');
 
 // Routes Admin
+$routes->get('/admin/consulta','Admin::index');
+$routes->get('/admin/graficas','Admin::graficas');
+$routes->get('/admin/usuarios','Admin::usuarios');
 
 /**
  * --------------------------------------------------------------------

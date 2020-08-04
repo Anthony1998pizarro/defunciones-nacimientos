@@ -26,7 +26,7 @@
   <div class="my-2 my-lg-0">
   <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <label class="nav-link" >CERRAR SESION</label>
+        <a class="nav-link" href="/home">CERRAR SESION</a>
       </li>
     </ul>
 </div>
