@@ -1,5 +1,5 @@
 
-    <div class="col">
+    <div class="col-3">
         <div class="list-group .modal-sm">
             <a class="list-group-item list-group-item-action bg-dark active">
                  NACIMIENTOS

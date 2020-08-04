@@ -2,8 +2,8 @@
 
 <?= $this->section('forms') ?>
 <div class="container mt-5">
-    <div class="row">
-        <div class="col">
+    
+        
             <label><h2> PROVINCIA </h2></label>
             <div class="input-group">
             <form action="/user/nacimiento/provincia" method="post" >
@@ -23,17 +23,18 @@
                 </div>
             </form>
             </div>
-        </div>
-    </div>
-    <div class="row">
+        
+    
+
+    <h3 class="text-center my-3">Provincia: <small><?=$provincia?></small></h3>
+    
        <?php
        if ($flag==1){
-           echo $provincia;
            echo "<br/>";
            echo $table;
        } 
         ?>
-    </div>
+    
 </div>
 
 <?= $this->endSection() ?>
