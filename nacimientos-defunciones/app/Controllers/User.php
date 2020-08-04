@@ -38,7 +38,12 @@ class User extends BaseController
           $data['error'] = 'Credenciales incorrectas';
           return view('index/login', $data);
         }
-
+        $session = \Config\Services::session();
+        $session->set([
+          'name' => $result[0]->name,
+          'lastname' => $result[0]->lastname,
+          'role' => $result[0]->role,
+        ]);
         $role = $result[0]->role;
         if ($role == 'ROLE_ADMIN') {
           return redirect()->to('/admin');
