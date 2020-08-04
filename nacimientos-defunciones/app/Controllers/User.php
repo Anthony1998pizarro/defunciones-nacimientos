@@ -390,10 +390,36 @@ class User extends BaseController
 		$result = $query->getResult();
      $data=[
       'active'=>['active',''],
-      'results' => $result
+      'results' => $result,
+      'flag' => 0
     ];
-    return view('users/consultas/defunciones/causa',$data);
+
+    if ($this->request->getMethod() === 'post') {
+
+      $select=$this->request->getPost('causa');
+      $select = urldecode($select);
+      $query = $db->query('SELECT "CAUSA","PROVINCIA","CANTON","TOTAL" FROM vm_def_canton_causa WHERE "CAUSA"=\''.$select.'\';');
+      $template = [
+        'table_open' => '<table class="table table-hover my-3">',
+        'thead_open' => '<thead class="thead-dark">',
+      ];
+
+      $table = new \CodeIgniter\View\Table($template);
+      $table = $table->generate($query);
+
+      $data+=[
+        'causa' => $select,
+        'table'=> $table
+      ];
+
+      $data['flag']=1;
+      
+    }
+
+      return view('users/consultas/defunciones/causa',$data);
     
+
+
     }
     
     public  function semana_def()
@@ -403,10 +429,35 @@ class User extends BaseController
 		$result = $query->getResult();
      $data=[
       'active'=>['active',''],
-      'results' => $result
+      'results' => $result,
+      'flag' => 0
     ];
+
+    if ($this->request->getMethod() === 'post') {
+
+      $select=$this->request->getPost('semana');
+      $select = urldecode($select);
+      $query = $db->query('SELECT "SEMANA","PROVINCIA","CANTON","TOTAL" FROM vm_def_canton_semana WHERE "SEMANA"=\''.$select.'\';');
+      $template = [
+        'table_open' => '<table class="table table-hover my-3">',
+        'thead_open' => '<thead class="thead-dark">',
+      ];
+
+      $table = new \CodeIgniter\View\Table($template);
+      $table = $table->generate($query);
+
+      $data+=[
+        'sem' => $select,
+        'table'=> $table
+      ];
+
+      $data['flag']=1;
+      
+    }
+
+
     return view('users/consultas/defunciones/semana',$data);
-    
+
     }
 
     

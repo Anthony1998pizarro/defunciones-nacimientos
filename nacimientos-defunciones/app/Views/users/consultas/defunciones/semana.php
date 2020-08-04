@@ -2,16 +2,15 @@
 
 <?= $this->section('forms') ?>
 <div class="container mt-5">
-    <div class="row">
-        <div class="col">
+            
             <label><h2> CAUSA DEFUNCIÓN </h2></label>
-            <form >
+            <form action="/user/defuncion/semana" method="post">
                 <div class="input-group">
-                    <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+                    <select class="custom-select" name="semana">
                     <?php
                         foreach ($results as $row ) {
                             echo "<option value=";
-                            echo $row->sem_gest;
+                            echo urlencode($row->sem_gest);
                             echo ">";
                             echo $row->sem_gest;
                             echo "</option>";
@@ -23,8 +22,16 @@
             </form>
         </div>
 </div>
-        </div>
-    </div>
+
+<?php
+
+if ($flag == 1) {
+    echo '<h3 class="my-3 text-center">Semana de gestacion: '.$sem.'</h3>';
+    echo $table;
+}
+
+?>
+
 </div>
 
 <?= $this->endSection() ?>
