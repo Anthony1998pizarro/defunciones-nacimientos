@@ -14,11 +14,11 @@
              <a  class="list-group-item list-group-item-action bg-dark active">
                  DEFUNCIONES
              </a>
-             <a href="#" class="list-group-item list-group-item-action">PROVINCIA</a> 
-             <a href="#" class="list-group-item list-group-item-action">ESTADO CIVIL</a>
-             <a href="#" class="list-group-item list-group-item-action">NIVEL EDUCACIÓN</a>
-             <a href="#" class="list-group-item list-group-item-action">OCURRENCIA</a>
-             <a href="#" class="list-group-item list-group-item-action">CAUSA DE DEFUNCIÓN</a>
-             <a href="#" class="list-group-item list-group-item-action">SEMANA DE GESTACIÓN</a> 
+             <a href="/user/defuncion/provincia" class="list-group-item list-group-item-action">PROVINCIA</a> 
+             <a href="/user/defuncion/estado" class="list-group-item list-group-item-action">ESTADO CIVIL</a>
+             <a href="/user/defuncion/educacion" class="list-group-item list-group-item-action">NIVEL EDUCACIÓN</a>
+             <a href="/user/defuncion/ocurrencia" class="list-group-item list-group-item-action">OCURRENCIA</a>
+             <a href="/user/defuncion/causa" class="list-group-item list-group-item-action">CAUSA DE DEFUNCIÓN</a>
+             <a href="/user/defuncion/semana" class="list-group-item list-group-item-action">SEMANA DE GESTACIÓN</a> 
         </div>
     </div>

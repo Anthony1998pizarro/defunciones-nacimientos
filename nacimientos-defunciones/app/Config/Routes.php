@@ -52,6 +52,19 @@ $routes->get('/user/nacimiento/ocurrencia','User::ocurrencia_nac');
 $routes->get('/user/nacimiento/asistencia','User::asistencia_nac');
 $routes->get('/user/nacimiento/producto','User::producto_nac');
 
+//consulta defunciones
+$routes->get('/user/defuncion/provincia','User::provincia_def');
+$routes->get('/user/defuncion/estado','User::estado_def');
+$routes->get('/user/defuncion/educacion','User::educacion_def');
+$routes->get('/user/defuncion/ocurrencia','User::ocurrencia_def');
+$routes->get('/user/defuncion/causa','User::causa_def');
+$routes->get('/user/defuncion/semana','User::semana_def');
+
+
+
+
+
+
 
 
 /**
