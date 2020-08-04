@@ -2,15 +2,15 @@
 
 <?= $this->section('forms') ?>
 <div class="container mt-5">
-    <div class="row">
-        <div class="col">
+
             <label><h2> NIVEL EDUCACIÓN </h2></label>
+            <form action="/user/defuncion/educacion" method="post">
             <div class="input-group">
-                <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+                <select class="custom-select" name="edu">
                 <?php
                     foreach ($results as $row ) {
                         echo "<option value=";
-                        echo $row->nivel_inst;
+                        echo urlencode($row->nivel_inst);
                         echo ">";
                         echo $row->nivel_inst;
                         echo "</option>";
@@ -18,11 +18,19 @@
                 ?>
                 </select>
             <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button">CONSULTAR</button>
+            <button class="btn btn-outline-secondary" type="submit">CONSULTAR</button>
+            </form>
         </div>
 </div>
-        </div>
-    </div>
+
+<?php
+
+if ($flag == 1) {
+    echo '<h3 class="my-3">Nivel de educacion: '.$edu.'</h3>';
+    echo $table;
+}
+
+?>
 </div>
 
 <?= $this->endSection() ?>

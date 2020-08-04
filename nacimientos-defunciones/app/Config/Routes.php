@@ -72,6 +72,9 @@ $routes->get('/user/defuncion/estado','User::estado_def');
 $routes->post('/user/defuncion/estado','User::estado_def');
 
 $routes->get('/user/defuncion/educacion','User::educacion_def');
+$routes->post('/user/defuncion/educacion','User::educacion_def');
+
+
 $routes->get('/user/defuncion/ocurrencia','User::ocurrencia_def');
 $routes->get('/user/defuncion/causa','User::causa_def');
 $routes->get('/user/defuncion/semana','User::semana_def');
