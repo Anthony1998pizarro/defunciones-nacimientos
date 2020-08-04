@@ -12,7 +12,7 @@
                     <?php
                     foreach ($results as $row ) {
                         echo "<option value=";
-                        echo $row->provincia;
+                        echo urlencode($row->provincia);
                         echo ">";
                         echo $row->provincia;
                         echo "</option>";

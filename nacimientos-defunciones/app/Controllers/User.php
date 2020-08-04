@@ -67,6 +67,7 @@ class User extends BaseController
       {
         $table = new \CodeIgniter\View\Table();
         $select=$this->request->getPost('estado');
+        $select=urldecode($select);
         $query = $db->query('SELECT  "ESTADO","Provincia","Canton","Nacidos" FROM mv_nac_canton_estado WHERE "ESTADO"=\''.$select.'\';');
         $table = $table->generate($query);
         $data+=[
@@ -88,10 +89,25 @@ class User extends BaseController
     $db = \Config\Database::connect();
     $query= $db->query('SELECT nivel_inst FROM nivel_insti order by nivel_inst;');
 		$result = $query->getResult();
-     $data=[
+    $data=[
       'active'=>['active',''],
-      'results' => $result
-    ];
+      'results' => $result,
+      'flag' => 0
+  ];
+
+  if ($this->request->getMethod() === 'post')
+      {
+        $table = new \CodeIgniter\View\Table();
+        $select=$this->request->getPost('estudio');
+        $query = $db->query('SELECT "Nivel Instruccion","Provincia", "Canton",  "Nacidos" FROM mv_nac_canton_inst where "Nivel Instruccion"=\''.$select.'\';');
+        $table = $table->generate($query);
+        $data+=[
+          'estudio' => $select,
+          'table'=> $table
+        ];  
+        $data['flag']=1;
+      }
+
     return view('users/consultas/nacimientos/estudio',$data);
     
     }
