@@ -27,7 +27,7 @@
         <input type="password" name="password" id="password" class="form-control">
       </div>
 
-      <input type="submit" value="Enviar" class="btn btn-primary btn-block mx-auto">
+      <input type="submit" value="Enviar" class="btn btn-dark btn-block mx-auto">
     </form>
 
 </div>
