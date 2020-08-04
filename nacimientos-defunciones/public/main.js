@@ -9,11 +9,11 @@ const getRGBA = () => {
   return `rgba(${r}, ${g}, ${b}, 0.2)`;
 };
 
-const draw = (data, ctx, title) => {
+const draw = (data, ctx, title, type = 'pie') => {
   let colors = data.labels.map((label) => getRGBA());
 
   new Chart(ctx, {
-    type: 'pie',
+    type,
     data: {
       labels: data.labels,
       datasets: [
@@ -101,7 +101,6 @@ if (nacimientosOcurrencia) {
 
 if (nacimientosProducto) {
   getData(`/nacimientos/producto`).then((res) => {
-    console.log(res);
     const labels = res.map((val) => val['Producto Embarazo']);
     const values = res.map((val) => val.Nacidos);
     draw({ labels, values }, nacimientosProducto);
@@ -113,14 +112,59 @@ if (nacimientosProducto) {
 // ========================================
 
 if (defuncionesCanton) {
+  let prov = 'Azuay';
+  getData(`/defunciones/provincia/${prov}`).then((res) => {
+    const labels = res.map((val) => val['CANTON']);
+    const values = res.map((val) => +val.TOTAL);
+
+    draw({ labels, values }, defuncionesCanton);
+  });
 }
+
 if (defuncionesCausa) {
+  getData(`/defunciones/causa`).then((res) => {
+    res = res.sort((a, b) => b.TOTAL - a.TOTAL);
+    res = res.slice(0, 6);
+
+    const labels = res.map((val) => val['CAUSA FETAL']);
+    const values = res.map((val) => +val.TOTAL);
+
+    draw({ labels, values }, defuncionesCausa);
+  });
 }
+
 if (defuncionesNivel) {
+  getData(`/defunciones/nivel`).then((res) => {
+    const labels = res.map((val) => val['EDUCACION']);
+    const values = res.map((val) => +val.TOTAL);
+
+    draw({ labels, values }, defuncionesNivel);
+  });
 }
+
 if (defuncionesSemana) {
+  getData(`/defunciones/semana`).then((res) => {
+    const labels = res.map((val) => val['SEMANA GESTACION']);
+    const values = res.map((val) => +val.TOTAL);
+
+    draw({ labels, values }, defuncionesSemana, 'Semana de gestacion', 'bar');
+  });
 }
+
 if (defuncionesEstado) {
+  getData(`/defunciones/estado`).then((res) => {
+    const labels = res.map((val) => val['ESTADO CIVIL']);
+    const values = res.map((val) => +val.TOTAL);
+
+    draw({ labels, values }, defuncionesEstado);
+  });
 }
+
 if (defuncionesOcurrencia) {
+  getData(`/defunciones/ocurrencia`).then((res) => {
+    const labels = res.map((val) => val['LUGAR DE OCURRENCIA']);
+    const values = res.map((val) => +val.TOTAL);
+
+    draw({ labels, values }, defuncionesOcurrencia);
+  });
 }

@@ -30,7 +30,7 @@ class Database extends \CodeIgniter\Database\Config
 	 * @var array
 	 */
 	public $default = [
-		
+
 		'hostname' => 'localhost',
 		'username' => 'postgres',
 		'password' => '',

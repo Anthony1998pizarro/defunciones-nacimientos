@@ -11,9 +11,9 @@ class Defunciones extends BaseController
 		return $this->response->setJSON($result);
   }
 
-  public function canton() {
+  public function provincia($name) {
     $db = \Config\Database::connect();
-		$query= $db->query('select * from vm_def_canton');
+		$query= $db->query('select * from vm_def_canton cant where cant."PROVINCIA" = \''.$name.'\'');
 		$result = $query->getResult();
 		return $this->response->setJSON($result);
   }
