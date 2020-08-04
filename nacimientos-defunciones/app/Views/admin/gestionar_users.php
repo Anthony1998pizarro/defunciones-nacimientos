@@ -12,6 +12,7 @@
       <th scope="col">Nombre</th>
       <th scope="col">Apellido</th>
       <th scope="col">Correo</th>
+      <th scope="col">Rol</th>
       <th scope="col">Accion</th>
     </tr>
   </thead>
@@ -23,6 +24,7 @@
       <td><?= $user->name?></td>
       <td><?= $user->lastname?></td>
       <td><?= $user->email?></td>
+      <td><?= $user->role?></td>
       <td>
         <form action="/admin/eliminar/<?=$user->id?>" method="delete">
           <button class="btn btn-sm btn-danger" type="submit">Eliminar</button>
