@@ -14,21 +14,21 @@ class Home extends BaseController
 		$data=[
 			'active'=>['active','']
 		];
-		return view('index\index',$data);
+		return view('index/index',$data);
 	}
 	public function home()
 	{
 		$data=[
 			'active'=>['active','']
 		];
-		return view('index\index',$data);
+		return view('index/index',$data);
 	}
 	 public function about()
 	{
 		$data=[
 			'active'=>['','active']
 		];
-		return view('index\about',$data);
+		return view('index/about',$data);
 	}
 	//--------------------------------------------------------------------
 

@@ -1,4 +1,4 @@
-<?= $this->extend('templates\users\index_user_template') ?>
+<?= $this->extend('templates/users/index_user_template') ?>
 
 <?= $this->section('contenido_usuario') ?>
 

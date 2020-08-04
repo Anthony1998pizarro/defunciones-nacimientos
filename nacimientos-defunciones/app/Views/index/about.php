@@ -1,4 +1,4 @@
-<?= $this->extend('templates\dashboard_index') ?>
+<?= $this->extend('templates/dashboard_index') ?>
 
 <?= $this->section('contenido') ?>
 
