@@ -22,7 +22,7 @@ class Admin extends BaseController
         $data=[
 			'active'=>['','','active']
 		];
-		return view('admin/gestionar_usuarios',$data);
+		return view('admin/gestionar_users',$data);
     }
 // ############################
 // CONSULTAS NACIMIENTOS ADMIN
