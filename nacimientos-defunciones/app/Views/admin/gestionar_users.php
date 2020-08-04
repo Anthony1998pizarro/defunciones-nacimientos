@@ -26,9 +26,13 @@
       <td><?= $user->email?></td>
       <td><?= $user->role?></td>
       <td>
-        <form action="/admin/eliminar/<?=$user->id?>" method="delete">
-          <button class="btn btn-sm btn-danger" type="submit">Eliminar</button>
-        </form>
+        <?php if($user->role != 'ROLE_ADMIN'): ?>
+
+          <form action="/admin/eliminar/<?=$user->id?>" method="delete">
+            <button class="btn btn-sm btn-danger" type="submit">Eliminar</button>
+          </form>
+        <?php endif; ?>
+
       </td>
     </tr>
   <?php endforeach ?>
