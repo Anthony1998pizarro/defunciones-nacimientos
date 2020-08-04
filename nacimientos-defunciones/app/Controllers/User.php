@@ -38,7 +38,7 @@ class User extends BaseController
         $data+=[
           'provincia' => $select,
           'table'=> $table
-        ];
+        ];  
         $data['flag']=1;
       }
     return view('users/consultas/nacimientos/provincia',$data);
@@ -47,13 +47,28 @@ class User extends BaseController
 
     public  function estado_nac()
     {
+
     $db = \Config\Database::connect();
     $query= $db->query('SELECT  estado_civil FROM estado_civil order by estado_civil');
 		$result = $query->getResult();
-     $data=[
-      'active'=>['active',''],
-      'results' => $result
+    $data=[
+        'active'=>['active',''],
+        'results' => $result,
+        'flag' => 0
     ];
+
+    if ($this->request->getMethod() === 'post')
+      {
+        $table = new \CodeIgniter\View\Table();
+        $select=$this->request->getPost('estado');
+        $query = $db->query('SELECT  "ESTADO","Provincia","Canton","Nacidos" FROM mv_nac_canton_estado WHERE "ESTADO"=\''.$select.'\';');
+        $table = $table->generate($query);
+        $data+=[
+          'estado' => $select,
+          'table'=> $table
+        ];  
+        $data['flag']=1;
+      }
     return view('users/consultas/nacimientos/estado',$data);
     
     }
