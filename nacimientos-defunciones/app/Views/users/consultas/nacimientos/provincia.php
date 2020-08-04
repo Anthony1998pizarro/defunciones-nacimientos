@@ -2,8 +2,8 @@
 
 <?= $this->section('forms') ?>
 <div class="container mt-5">
-    
-        
+
+
             <label><h2> PROVINCIA </h2></label>
             <div class="input-group">
             <form action="/user/nacimiento/provincia" method="post" >
@@ -23,18 +23,18 @@
                 </div>
             </form>
             </div>
-        
-    
 
-    <h3 class="text-center my-3">Provincia: <small><?=$provincia?></small></h3>
-    
+
+
+
        <?php
        if ($flag==1){
+        echo '<h3 class="text-center my-3">Provincia: <small>'.$provincia.'</small></h3>';
            echo "<br/>";
            echo $table;
-       } 
+       }
         ?>
-    
+
 </div>
 
 <?= $this->endSection() ?>

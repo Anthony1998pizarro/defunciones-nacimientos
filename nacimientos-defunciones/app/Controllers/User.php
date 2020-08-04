@@ -18,7 +18,7 @@ class User extends BaseController
 		return view('users/consulta',$data);
     }
 
-    public  function provincia_nac()
+    public function provincia_nac()
     {
       $db = \Config\Database::connect();
       $query= $db->query('SELECT  provincia FROM provincia order by provincia;');
