@@ -17,13 +17,18 @@ class Admin extends BaseController
 		];
 		return view('admin/ver_graficos',$data);
     }
-    
+
     public  function usuarios()
     {
-        $data=[
-			'active'=>['','','active']
-		];
-		return view('admin/gestionar_users',$data);
+      $db = \Config\Database::connect();
+      $query= $db->query('SELECT  * FROM usuarios;');
+      $result = $query->getResult();
+
+      $data=[
+        'active'=>['','','active'],
+        'users' => $result
+      ];
+      return view('admin/gestionar_users',$data);
     }
 // ############################
 // CONSULTAS NACIMIENTOS ADMIN
