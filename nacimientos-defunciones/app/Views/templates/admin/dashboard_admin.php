@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.css" media="screen">
-    <link rel="stylesheet" href="/ChartJs/Chart.min.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="home">INEC CONSULTs</a>
+  <a class="navbar-brand" href="#">INEC CONSULTs</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -17,23 +16,26 @@
   <div class="collapse navbar-collapse" id="navbarColor02">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item <?= $active[0] ?>">
-        <a class="nav-link" href="home">Home</a>
+        <a class="nav-link" href="#">CONSULTAS</a>
       </li>
       <li class="nav-item <?= $active[1] ?>">
-        <a class="nav-link" href="about">About</a>
+        <a class="nav-link" href="#">VER GRAFICAS</a>
+      </li>
+      <li class="nav-item <?= $active[1] ?>">
+        <a class="nav-link" href="#">GESTIONAR USUARIOS</a>
       </li>
     </ul>
   </div>
   <div class="my-2 my-lg-0">
   <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="user">INICAR SESION</a>
+        <label class="nav-link" >CERRAR SESION</label>
       </li>
     </ul>
 </div>
 </nav>
 
-<?= $this->renderSection('contenido') ?>
+<?= $this->renderSection('contenido_admin') ?>
 
 <footer class="d-flex flex-column bg-dark text-white text-center">
         <span>&copy; UPS - Gestion Base de Datos </span>
@@ -45,7 +47,4 @@
         </ul>
     </footer>
 </body>
-
-<script src="/ChartJs/Chart.min.js"></script>
-<script src="/main.js"></script>
 </html>

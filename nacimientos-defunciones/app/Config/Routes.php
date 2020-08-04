@@ -38,6 +38,9 @@ $routes->get('/about', 'Home::about');
 $routes->get('/user/consulta','User::consulta');
 $routes->get('/user/graficas','User::graficas');
 $routes->get('/user','User::index');
+
+// Routes Admin
+
 /**
  * --------------------------------------------------------------------
  * Additional Routing

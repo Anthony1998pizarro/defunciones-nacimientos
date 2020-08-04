@@ -8,7 +8,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="consulta">INEC CONSULTs</a>
+  <a class="navbar-brand" href="/user/consulta">INEC CONSULTs</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -16,10 +16,10 @@
   <div class="collapse navbar-collapse" id="navbarColor02">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item <?= $active[0] ?>">
-        <a class="nav-link" href="consulta">CONSULTAS</a>
+        <a class="nav-link" href="/user/consulta">CONSULTAS</a>
       </li>
       <li class="nav-item <?= $active[1] ?>">
-        <a class="nav-link" href="graficas">VER GRAFICAS</a>
+        <a class="nav-link" href="/user/graficas">VER GRAFICAS</a>
       </li>
     </ul>
   </div>
