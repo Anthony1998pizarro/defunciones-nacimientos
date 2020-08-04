@@ -29,6 +29,9 @@
       <li class="nav-item active">
         <a class="nav-link" href="/login">INICAR SESION</a>
       </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/register">REGISTRO</a>
+      </li>
     </ul>
 </div>
 </nav>

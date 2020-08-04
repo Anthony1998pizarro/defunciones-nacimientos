@@ -58,7 +58,28 @@ class User extends BaseController
     }
 
     public function register() {
+      $data['active'] = ['',''];
+      helper('url');
 
+      if ($this->request->getMethod() === 'get') {
+        return view('index/register', $data);
+      }
+
+      if ($this->request->getMethod() === 'post') {
+        $email=$this->request->getPost('email');
+        $db = \Config\Database::connect();
+        $query = $db->query('SELECT email FROM usuarios WHERE email = \''.$email.'\';');
+        $results = $query->getResult();
+        if (!empty($results)) {
+          $data['error'] = 'Usuario ya Registrado';
+          return view('index/register', $data);
+        }
+        $name=$this->request->getPost('name');
+        $lastname=$this->request->getPost('lastname');
+        $password=$this->request->getPost('password');
+        $db->query('INSERT INTO public.usuarios( name, lastname, role, email, password) VALUES ( \''.$name.'\', \''.$lastname.'\', \'ROLE_USER\', \''.$email.'\', \''.$password.'\');');
+        return redirect()->to('/login');
+      }
     }
 
     public function provincia_nac()

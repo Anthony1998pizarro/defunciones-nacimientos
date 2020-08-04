@@ -43,6 +43,7 @@ $routes->get('/user','User::index');
 $routes->get('/login', 'User::login');
 $routes->post('/login', 'User::login');
 $routes->get('/register', 'User::register');
+$routes->post('/register', 'User::register');
 
 // Routes Admin
 $routes->get('/admin/consulta','Admin::index');
