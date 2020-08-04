@@ -17,6 +17,7 @@ class Admin extends BaseController
 		];
 		return view('admin/ver_graficos',$data);
     }
+    
     public  function usuarios()
     {
         $data=[
