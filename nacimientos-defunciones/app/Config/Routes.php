@@ -44,6 +44,12 @@ $routes->get('/admin/consulta','Admin::index');
 $routes->get('/admin/graficas','Admin::graficas');
 $routes->get('/admin/usuarios','Admin::usuarios');
 
+// consulta nacimientos 
+$routes->get('/user/nacimiento/provincia','User::provincia_nac');
+$routes->get('/user/nacimiento/estado','User::estado_nac');
+$routes->get('/user/nacimiento/educacion','User::educacion_nac');
+$routes->get('/user/nacimiento/ocurrencia','User::ocurrencia_nac');
+
 /**
  * --------------------------------------------------------------------
  * Additional Routing
