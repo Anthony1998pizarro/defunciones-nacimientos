@@ -1,26 +1,34 @@
 <?php namespace App\Controllers;
 
-use Config\Database;
 
 class Home extends BaseController
 {
 	public function index()
 	{
 		// $db = \Config\Database::connect();
-		// $query= $db->query('select * from nivel_insti');
+		// $query= $db->query('select * from mv_nac');
 		// $result = $query->getResult();
-		// foreach ($result as $row) {
-		// 	echo $row->nivel_inst."<br/>"; 
-		// }
-		return view('index_view');
+		// // foreach ($result as $row) {
+		// // 	echo $row->sexo."<br/>"; 
+		// // }
+		$data=[
+			'active'=>['active','']
+		];
+		return view('index\index',$data);
 	}
 	public function home()
 	{
-		return view('index_view');
+		$data=[
+			'active'=>['active','']
+		];
+		return view('index\index',$data);
 	}
 	 public function about()
 	{
-		return view('index_view');
+		$data=[
+			'active'=>['','active']
+		];
+		return view('index\about',$data);
 	}
 	//--------------------------------------------------------------------
 

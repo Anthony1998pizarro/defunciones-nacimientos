@@ -15,10 +15,10 @@
 
   <div class="collapse navbar-collapse" id="navbarColor02">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li class="nav-item <?= $active[0] ?>">
         <a class="nav-link" href="home">Home</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item <?= $active[1] ?>">
         <a class="nav-link" href="about">About</a>
       </li>
     </ul>
@@ -31,12 +31,16 @@
     </ul>
 </div>
 </nav>
+
+<?= $this->renderSection('contenido') ?>
+
 <footer class="d-flex flex-column bg-dark text-white text-center">
         <span>&copy; UPS - Gestion Base de Datos </span>
 
         <ul class="list-unstyled">
             <li>Anthony Pizarro</li>
             <li>Andres Ponce</li>
+            <li>Katherine Ramiréz</li>
         </ul>
     </footer>
 </body>
