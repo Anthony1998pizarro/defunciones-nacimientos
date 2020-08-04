@@ -2,6 +2,8 @@
 # Operating Specific Junk Files
 #-------------------------
 
+app/Config/Database.php
+
 # OS X
 .DS_Store
 .AppleDouble
@@ -98,6 +100,7 @@ _modules/*
 # Jetbrains editors (PHPStorm, etc)
 .idea/
 *.iml
+
 
 # Netbeans
 nbproject/
