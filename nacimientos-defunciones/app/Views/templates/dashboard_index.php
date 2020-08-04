@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.css" media="screen">
+    <link rel="stylesheet" href="/ChartJs/Chart.min.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -44,4 +45,7 @@
         </ul>
     </footer>
 </body>
+
+<script src="/ChartJs/Chart.min.js"></script>
+<script src="/main.js"></script>
 </html>
