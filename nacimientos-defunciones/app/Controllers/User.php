@@ -256,7 +256,7 @@ class User extends BaseController
       {
         $select=$this->request->getPost('provincia');
         $select = urldecode($select);
-        $query = $db->query('SELECT  * FROM vm_def_canton  WHERE "PROVINCIA"=\''.$select.'\';');
+        $query = $db->query('SELECT "PROVINCIA","CANTON",  "TOTAL" FROM vm_def_canton  WHERE "PROVINCIA"=\''.$select.'\';');
         $template = [
           'table_open' => '<table class="table table-hover">',
           'thead_open' => '<thead class="thead-dark">',
@@ -290,7 +290,7 @@ class User extends BaseController
       {
         $select=$this->request->getPost('estado');
         $select = urldecode($select);
-        $query = $db->query('SELECT * FROM mv_nac_canton_estado WHERE "ESTADO"=\''.$select.'\';');
+        $query = $db->query('SELECT  "ESTADO","PROVINCIA","CANTON",  "TOTAL" FROM vm_def_canton_estado WHERE "ESTADO"=\''.$select.'\';');
 
         $template = [
           'table_open' => '<table class="table table-hover">',
@@ -327,7 +327,7 @@ class User extends BaseController
       
       $select=$this->request->getPost('edu');
       $select = urldecode($select);
-      $query = $db->query('SELECT * FROM vm_def_canton_educacion WHERE "EDUCACION"=\''.$select.'\';');
+      $query = $db->query('SELECT "EDUCACION","PROVINCIA","CANTON", "TOTAL" FROM vm_def_canton_educacion WHERE "EDUCACION"=\''.$select.'\';');
 
       $template = [
         'table_open' => '<table class="table table-hover my-3">',
@@ -363,8 +363,7 @@ class User extends BaseController
       
       $select=$this->request->getPost('ocurrencia');
       $select = urldecode($select);
-      $query = $db->query('SELECT * FROM vm_def_canton_ocurrencia WHERE "OCURRENCIA"=\''.$select.'\';');
-
+      $query = $db->query('SELECT "OCURRENCIA","PROVINCIA","CANTON","TOTAL" FROM vm_def_canton_ocurrencia WHERE "OCURRENCIA"=\''.$select.'\';');
       $template = [
         'table_open' => '<table class="table table-hover my-3">',
         'thead_open' => '<thead class="thead-dark">',
