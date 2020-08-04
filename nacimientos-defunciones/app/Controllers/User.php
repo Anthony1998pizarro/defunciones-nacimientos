@@ -8,20 +8,20 @@ class User extends BaseController
         $data=[
 			'active'=>['active','']
 		];
-		return view('users\consulta',$data);
+		return view('users/consulta',$data);
     }
     public  function consulta()
     {
         $data=[
 			'active'=>['active','']
 		];
-		return view('users\consulta',$data);
+		return view('users/consulta',$data);
     }
     public  function graficas()
     {
         $data=[
 			'active'=>['','active']
 		];
-		return view('users\grafica',$data);
+		return view('users/grafica',$data);
     }
 }
