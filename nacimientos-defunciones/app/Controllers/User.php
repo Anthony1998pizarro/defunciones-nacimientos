@@ -20,13 +20,27 @@ class User extends BaseController
 
     public  function provincia_nac()
     {
-    $db = \Config\Database::connect();
-    $query= $db->query('SELECT  provincia FROM provincia order by provincia;');
-		$result = $query->getResult();
-     $data=[
-      'active'=>['active',''],
-      'results' => $result
-    ];
+      $db = \Config\Database::connect();
+      $query= $db->query('SELECT  provincia FROM provincia order by provincia;');
+      $result = $query->getResult();
+      $data=[
+        'active'=>['active',''],
+        'results' => $result,
+        'flag' => 0
+
+      ];
+      if ($this->request->getMethod() === 'post')
+      {
+        $table = new \CodeIgniter\View\Table();
+        $select=$this->request->getPost('provincia');
+        $query = $db->query('SELECT  "Provincia","Canton", "Nacidos" FROM mv_nac_canton  WHERE "Provincia"=\''.$select.'\';');
+        $table = $table->generate($query);
+        $data+=[
+          'provincia' => $select,
+          'table'=> $table
+        ];
+        $data['flag']=1;
+      }
     return view('users/consultas/nacimientos/provincia',$data);
     
     }
@@ -110,7 +124,6 @@ class User extends BaseController
       'results' => $result
     ];
     return view('users/consultas/defunciones/provincia',$data);
-
     }
     
     public  function estado_def()
