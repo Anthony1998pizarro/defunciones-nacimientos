@@ -11,7 +11,7 @@
                 <?php
                     foreach ($results as $row ) {
                         echo "<option value=";
-                        echo $row->nivel_inst;
+                        echo urlencode($row->nivel_inst);
                         echo ">";
                         echo $row->nivel_inst;
                         echo "</option>";
@@ -24,15 +24,13 @@
             </div>
         </div>
     </div>
-    <div class="row">
-       <?php
+    <?php
        if ($flag==1){
-           echo $estudio;
+        echo '<h3 class="text-center my-3">NIVEL EDUCACION: <small>'.$estudio.'</small></h3>';
            echo "<br/>";
            echo $table;
-       } 
+       }
         ?>
-    </div>
 </div>
 
 <?= $this->endSection() ?>

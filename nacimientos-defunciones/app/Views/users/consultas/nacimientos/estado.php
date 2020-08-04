@@ -11,7 +11,7 @@
                     <?php
                     foreach ($results as $row ) {
                         echo "<option value=";
-                        echo $row->estado_civil;
+                        echo urlencode($row->estado_civil);
                         echo ">";
                         echo $row->estado_civil;
                         echo "</option>";
@@ -25,12 +25,12 @@
         </div>
     </div>
     <div class="row">
-       <?php
+    <?php
        if ($flag==1){
-           echo $estado;
+        echo '<h3 class="text-center my-3">ESTADO CIVIL: <small>'.$estado.'</small></h3>';
            echo "<br/>";
            echo $table;
-       } 
+       }
         ?>
     </div>
 </div>

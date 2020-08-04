@@ -32,6 +32,7 @@ class User extends BaseController
       if ($this->request->getMethod() === 'post')
       {
         $select=$this->request->getPost('provincia');
+        $select = urldecode($select);
         $query = $db->query('SELECT  "Provincia","Canton", "Nacidos" FROM mv_nac_canton  WHERE "Provincia"=\''.$select.'\';');
         $template = [
           'table_open' => '<table class="table table-hover">',
@@ -69,7 +70,14 @@ class User extends BaseController
         $select=$this->request->getPost('estado');
         $select=urldecode($select);
         $query = $db->query('SELECT  "ESTADO","Provincia","Canton","Nacidos" FROM mv_nac_canton_estado WHERE "ESTADO"=\''.$select.'\';');
+        $template = [
+          'table_open' => '<table class="table table-hover">',
+          'thead_open' => '<thead class="thead-dark">',
+        ];
+
+        $table = new \CodeIgniter\View\Table($template);
         $table = $table->generate($query);
+
         $data+=[
           'estado' => $select,
           'table'=> $table
@@ -99,8 +107,16 @@ class User extends BaseController
       {
         $table = new \CodeIgniter\View\Table();
         $select=$this->request->getPost('estudio');
+        $select=urldecode($select);
         $query = $db->query('SELECT "Nivel Instruccion","Provincia", "Canton",  "Nacidos" FROM mv_nac_canton_inst where "Nivel Instruccion"=\''.$select.'\';');
+        $template = [
+          'table_open' => '<table class="table table-hover">',
+          'thead_open' => '<thead class="thead-dark">',
+        ];
+
+        $table = new \CodeIgniter\View\Table($template);
         $table = $table->generate($query);
+
         $data+=[
           'estudio' => $select,
           'table'=> $table
@@ -117,24 +133,71 @@ class User extends BaseController
     $db = \Config\Database::connect();
     $query= $db->query('SELECT  ocurrencia FROM ocurrencia ORDER by ocurrencia;');
 		$result = $query->getResult();
-     $data=[
+    $data=[
       'active'=>['active',''],
-      'results' => $result
-    ];
+      'results' => $result,
+      'flag' => 0
+  ];
+
+  if ($this->request->getMethod() === 'post')
+      {
+        $table = new \CodeIgniter\View\Table();
+        $select=$this->request->getPost('ocurrencia');
+        $select=urldecode($select);
+        // print_r($select);
+        $query = $db->query('SELECT "Ocurrencia", "Provincia","Canton",  "Nacidos" FROM mv_nac_canton_ocu WHERE "Ocurrencia" = \''.$select.'\';');
+        $template = [
+          'table_open' => '<table class="table table-hover">',
+          'thead_open' => '<thead class="thead-dark">',
+        ];
+
+        $table = new \CodeIgniter\View\Table($template);
+        $table = $table->generate($query);
+
+        $data+=[
+          'ocurrencia' => $select,
+          'table'=> $table
+        ];  
+        $data['flag']=1;
+      }
+
     return view('users/consultas/nacimientos/ocurrencia',$data);
     
     }
-    
 
     public  function asistencia_nac()
     {
     $db = \Config\Database::connect();
-    $query= $db->query('SELECT  asistido_por FROM asistido_por order by asistido_por;');
+    $query= $db->query('SELECT asistido_por FROM asistido_por ORDER by asistido_por;');
 		$result = $query->getResult();
-     $data=[
+    $data=[
       'active'=>['active',''],
-      'results' => $result
-    ];
+      'results' => $result,
+      'flag' => 0
+  ];
+
+  if ($this->request->getMethod() === 'post')
+      {
+        $table = new \CodeIgniter\View\Table();
+        $select=$this->request->getPost('asistido');
+        $select=urldecode($select);
+        // print_r($select);
+        $query = $db->query('SELECT  "Asistido Por", "Provincia", "Canton","Nacidos" FROM mv_nac_canton_asis WHERE  "Asistido Por"=\''.$select.'\' ;');
+        $template = [
+          'table_open' => '<table class="table table-hover">',
+          'thead_open' => '<thead class="thead-dark">',
+        ];
+
+        $table = new \CodeIgniter\View\Table($template);
+        $table = $table->generate($query);
+
+        $data+=[
+          'asistido' => $select,
+          'table'=> $table
+        ];  
+        $data['flag']=1;
+      }
+
     return view('users/consultas/nacimientos/asistencia',$data);
     
     }
@@ -144,10 +207,33 @@ class User extends BaseController
     $db = \Config\Database::connect();
     $query= $db->query('SELECT producto FROM producto_emb ORDER by producto ;');
 		$result = $query->getResult();
-     $data=[
+    $data=[
       'active'=>['active',''],
-      'results' => $result
-    ];
+      'results' => $result,
+      'flag' => 0
+  ];
+
+  if ($this->request->getMethod() === 'post')
+      {
+        $table = new \CodeIgniter\View\Table();
+        $select=$this->request->getPost('producto');
+        $select=urldecode($select);
+        // print_r($select);
+        $query = $db->query('SELECT "Producto Embarazo",  "Provincia", "Canton",  "Nacidos" FROM mv_nac_canton_prod WHERE "Producto Embarazo" = \''.$select.'\';');
+        $template = [
+          'table_open' => '<table class="table table-hover">',
+          'thead_open' => '<thead class="thead-dark">',
+        ];
+
+        $table = new \CodeIgniter\View\Table($template);
+        $table = $table->generate($query);
+
+        $data+=[
+          'producto' => $select,
+          'table'=> $table
+        ];  
+        $data['flag']=1;
+      }
     return view('users/consultas/nacimientos/producto',$data);
     }
 
