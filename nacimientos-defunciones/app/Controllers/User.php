@@ -242,8 +242,7 @@ class User extends BaseController
     #####################################################################################
     ################             DEFUNCIONES                       ######################
     #####################################################################################
-    public  function provincia_def()
-    {
+    public  function provincia_def() {
     $db = \Config\Database::connect();
     $query= $db->query('SELECT  provincia FROM provincia order by provincia;');
 		$result = $query->getResult();
@@ -283,11 +282,36 @@ class User extends BaseController
 		$result = $query->getResult();
      $data=[
       'active'=>['active',''],
-      'results' => $result
+      'results' => $result,
+      'flag' => 0
     ];
+
+    if ($this->request->getMethod() === 'post')
+      {
+        $select=$this->request->getPost('estado');
+        $select = urldecode($select);
+        $query = $db->query('SELECT * FROM mv_nac_canton_estado WHERE "ESTADO"=\''.$select.'\';');
+
+        $template = [
+          'table_open' => '<table class="table table-hover">',
+          'thead_open' => '<thead class="thead-dark">',
+        ];
+
+        $table = new \CodeIgniter\View\Table($template);
+        $table = $table->generate($query);
+
+        $data+=[
+          'estado' => $select,
+          'table'=> $table
+        ];
+        $data['flag']=1;
+      }
     return view('users/consultas/defunciones/estado',$data);
-    
+
     }
+
+
+
     public  function educacion_def()
     {
     $db = \Config\Database::connect();
@@ -295,8 +319,31 @@ class User extends BaseController
 		$result = $query->getResult();
      $data=[
       'active'=>['active',''],
-      'results' => $result
+      'results' => $result,
+      'flag' => 0
     ];
+
+    if ($this->request->getMethod() === 'post') {
+      
+      $select=$this->request->getPost('edu');
+      $select = urldecode($select);
+      $query = $db->query('SELECT * FROM vm_def_canton_educacion WHERE "EDUCACION"=\''.$select.'\';');
+
+      $template = [
+        'table_open' => '<table class="table table-hover my-3">',
+        'thead_open' => '<thead class="thead-dark">',
+      ];
+
+      $table = new \CodeIgniter\View\Table($template);
+      $table = $table->generate($query);
+
+      $data+=[
+        'edu' => $select,
+        'table'=> $table
+      ];
+      $data['flag']=1;
+    }
+
     return view('users/consultas/defunciones/estudio',$data);
     
     }
@@ -308,8 +355,31 @@ class User extends BaseController
 		$result = $query->getResult();
      $data=[
       'active'=>['active',''],
-      'results' => $result
+      'results' => $result,
+      'flag' => 0
     ];
+
+    if ($this->request->getMethod() === 'post') {
+      
+      $select=$this->request->getPost('ocurrencia');
+      $select = urldecode($select);
+      $query = $db->query('SELECT * FROM vm_def_canton_ocurrencia WHERE "OCURRENCIA"=\''.$select.'\';');
+
+      $template = [
+        'table_open' => '<table class="table table-hover my-3">',
+        'thead_open' => '<thead class="thead-dark">',
+      ];
+
+      $table = new \CodeIgniter\View\Table($template);
+      $table = $table->generate($query);
+
+      $data+=[
+        'ocurrencia' => $select,
+        'table'=> $table
+      ];
+      $data['flag']=1;
+    }
+
     return view('users/consultas/defunciones/ocurrencia',$data);
     
     }

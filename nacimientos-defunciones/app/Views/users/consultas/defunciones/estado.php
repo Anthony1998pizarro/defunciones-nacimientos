@@ -2,15 +2,15 @@
 
 <?= $this->section('forms') ?>
 <div class="container mt-5">
-    <div class="row">
-        <div class="col">
+
             <label><h2> ESTADO CIVIL </h2></label>
+            <form action="/user/defuncion/estado" method="post">
             <div class="input-group">
-                <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+                <select class="custom-select" name="estado">
                 <?php
                     foreach ($results as $row ) {
                         echo "<option value=";
-                        echo $row->estado_civil;
+                        echo urlencode($row->estado_civil);
                         echo ">";
                         echo $row->estado_civil;
                         echo "</option>";
@@ -18,11 +18,20 @@
                 ?>
                 </select>
             <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button">CONSULTAR</button>
+            <button class="btn btn-outline-secondary" type="submit">CONSULTAR</button>
+            </form>
         </div>
 </div>
-        </div>
-    </div>
+    
+
+
+    <?php
+    if ($flag==1){
+        echo '<h2 class="text-center my-3">Estado Civil: '.$estado.'</h2>';
+        echo "<br/>";
+        echo $table;
+    }
+    ?>
 </div>
 
 <?= $this->endSection() ?>

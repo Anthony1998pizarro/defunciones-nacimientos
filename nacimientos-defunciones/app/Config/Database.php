@@ -33,9 +33,9 @@ class Database extends \CodeIgniter\Database\Config
 
 		'hostname' => 'localhost',
 		'username' => 'postgres',
-		'password' => '123456',
-		'database' => 'DEFUNCIONES',
-		'DBDriver' => 'postgre',
+		'password' => '',
+		'database' => 'dw',
+		'DBDriver' => 'Postgre',
 		'DBPrefix' => '',
 		'pConnect' => false,
 		'DBDebug'  => (ENVIRONMENT !== 'production'),
