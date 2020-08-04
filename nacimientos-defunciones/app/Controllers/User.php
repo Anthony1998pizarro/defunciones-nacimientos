@@ -133,8 +133,13 @@ class User extends BaseController
       'results' => $result
     ];
     return view('users/consultas/nacimientos/producto',$data);
-
     }
+
+
+
+    #####################################################################################
+    ################             DEFUNCIONES                       ######################
+    #####################################################################################
     public  function provincia_def()
     {
     $db = \Config\Database::connect();
@@ -142,8 +147,30 @@ class User extends BaseController
 		$result = $query->getResult();
      $data=[
       'active'=>['active',''],
-      'results' => $result
+      'results' => $result,
+      'flag' => 0
     ];
+
+    if ($this->request->getMethod() === 'post')
+      {
+        $select=$this->request->getPost('provincia');
+        $select = urldecode($select);
+        $query = $db->query('SELECT  * FROM vm_def_canton  WHERE "PROVINCIA"=\''.$select.'\';');
+        $template = [
+          'table_open' => '<table class="table table-hover">',
+          'thead_open' => '<thead class="thead-dark">',
+        ];
+
+        $table = new \CodeIgniter\View\Table($template);
+        $table = $table->generate($query);
+
+        $data+=[
+          'provincia' => $select,
+          'table'=> $table
+        ];  
+        $data['flag']=1;
+      }
+
     return view('users/consultas/defunciones/provincia',$data);
     }
     
