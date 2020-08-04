@@ -30,6 +30,15 @@ class Admin extends BaseController
       ];
       return view('admin/gestionar_users',$data);
     }
+    
+    public function eliminar($id)
+    {
+      $db = \Config\Database::connect();
+      $query= $db->query('DELETE FROM usuarios where id = \''.$id.'\';');
+      helper('url');
+
+      return redirect()->to('/admin/usuarios');
+    }
 // ############################
 // CONSULTAS NACIMIENTOS ADMIN
 // ############################

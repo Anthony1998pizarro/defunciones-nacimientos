@@ -49,6 +49,7 @@ $routes->post('/register', 'User::register');
 $routes->get('/admin/consulta','Admin::index');
 $routes->get('/admin/graficas','Admin::graficas');
 $routes->get('/admin/usuarios','Admin::usuarios');
+$routes->delete('/admin/eliminar','Admin::eliminar');
 
 
 
