@@ -12,16 +12,22 @@
       <th scope="col">Nombre</th>
       <th scope="col">Apellido</th>
       <th scope="col">Correo</th>
+      <th scope="col">Accion</th>
     </tr>
   </thead>
   <tbody>
   <?php foreach ($users as $user): ?>
 
     <tr>
-      <th><?= $user->id?></th>
-      <th><?= $user->name?></th>
-      <th><?= $user->lastname?></th>
-      <th><?= $user->email?></th>
+      <td><?= $user->id?></td>
+      <td><?= $user->name?></td>
+      <td><?= $user->lastname?></td>
+      <td><?= $user->email?></td>
+      <td>
+        <form action="/admin/eliminar/<?=$user->id?>" method="post">
+          <button class="btn btn-sm btn-danger" type="submit">Eliminar</button>
+        </form>
+      </td>
     </tr>
   <?php endforeach ?>
 
