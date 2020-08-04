@@ -18,6 +18,44 @@ class User extends BaseController
 		return view('users/consulta',$data);
     }
 
+    public function login() {
+      $data['active'] = ['',''];
+      helper('url');
+
+      if ($this->request->getMethod() === 'get') {
+        return view('index/login', $data);
+      }
+      
+      if ($this->request->getMethod() === 'post') {
+        $email=$this->request->getPost('email');
+        $password=$this->request->getPost('password');
+
+        $db = \Config\Database::connect();
+        $query= $db->query('SELECT  * FROM usuarios where email=\''.$email.'\' and password = \''.$password.'\';');
+        $result = $query->getResult();
+
+        if (empty($result)) {
+          $data['error'] = 'Credenciales incorrectas';
+          return view('index/login', $data);
+        }
+
+        $role = $result[0]->role;
+        if ($role == 'ROLE_ADMIN') {
+          return redirect()->to('/admin');
+        }
+        
+        if ($role == 'ROLE_USER') {
+          return redirect()->to('/user');
+        }
+
+      }
+
+    }
+
+    public function register() {
+
+    }
+
     public function provincia_nac()
     {
       $db = \Config\Database::connect();

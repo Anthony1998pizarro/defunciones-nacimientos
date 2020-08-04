@@ -39,6 +39,11 @@ $routes->get('/user/consulta','User::consulta');
 $routes->get('/user/graficas','User::graficas');
 $routes->get('/user','User::index');
 
+// login register
+$routes->get('/login', 'User::login');
+$routes->post('/login', 'User::login');
+$routes->get('/register', 'User::register');
+
 // Routes Admin
 $routes->get('/admin/consulta','Admin::index');
 $routes->get('/admin/graficas','Admin::graficas');
