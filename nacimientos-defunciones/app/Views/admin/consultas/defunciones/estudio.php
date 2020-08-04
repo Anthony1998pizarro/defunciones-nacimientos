@@ -1,10 +1,10 @@
-<?= $this->extend('users/consulta') ?>
+<?= $this->extend('admin/consulta') ?>
 
 <?= $this->section('forms') ?>
 <div class="container mt-5">
 
             <label><h2> NIVEL EDUCACIÓN </h2></label>
-            <form action="/user/defuncion/educacion" method="post">
+            <form action="/admin/defuncion/educacion" method="post">
             <div class="input-group">
                 <select class="custom-select" name="edu">
                 <?php

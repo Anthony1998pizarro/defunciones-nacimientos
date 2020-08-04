@@ -46,5 +46,7 @@
             <li>Katherine Ramiréz</li>
         </ul>
     </footer>
+    <script src="/ChartJs/Chart.min.js"></script>
+<script src="/main.js"></script>
 </body>
 </html>

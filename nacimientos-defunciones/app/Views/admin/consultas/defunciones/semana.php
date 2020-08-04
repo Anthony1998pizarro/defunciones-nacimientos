@@ -1,10 +1,10 @@
-<?= $this->extend('users/consulta') ?>
+<?= $this->extend('admin/consulta') ?>
 
 <?= $this->section('forms') ?>
 <div class="container mt-5">
             
             <label><h2> CAUSA DEFUNCIÓN </h2></label>
-            <form action="/user/defuncion/semana" method="post">
+            <form action="/admin/defuncion/semana" method="post">
                 <div class="input-group">
                     <select class="custom-select" name="semana">
                     <?php

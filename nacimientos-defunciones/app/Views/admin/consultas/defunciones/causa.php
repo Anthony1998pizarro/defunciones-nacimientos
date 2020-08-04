@@ -1,18 +1,18 @@
-<?= $this->extend('users/consulta') ?>
+<?= $this->extend('admin/consulta') ?>
 
 <?= $this->section('forms') ?>
 <div class="container mt-5">
 
-            <label><h2> LUEGAR DE OCURRENCIA </h2></label>
-            <form action="/user/defuncion/ocurrencia" method="post">
+            <label><h2> CAUSA DEFUNCIÓN </h2></label>
+            <form action="/admin/defuncion/causa" method="post">
             <div class="input-group">
-                <select class="custom-select" name="ocurrencia">
+                <select class="custom-select" name="causa">
                 <?php
                     foreach ($results as $row ) {
                         echo "<option value=";
-                        echo urlencode($row->ocurrencia);
+                        echo urlencode($row->causa_fet);
                         echo ">";
-                        echo $row->ocurrencia;
+                        echo $row->causa_fet;
                         echo "</option>";
                     }
                 ?>
@@ -23,14 +23,13 @@
             </div>
             </form>
 
+<?php
 
-<?php 
 if ($flag == 1) {
-    echo '<h3 class="text-center my-3">Lugar de ocurrencia: '.$ocurrencia.'</h3>';
+    echo '<h3>Causa: '.$causa.'</h3>';
     echo $table;
-    
 }
-?> 
+?>
 
 </div>
 

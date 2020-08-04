@@ -460,8 +460,6 @@ class User extends BaseController
 
     }
 
-    
-
     public  function graficas()
     {
         $data=[

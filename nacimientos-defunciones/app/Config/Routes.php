@@ -44,7 +44,53 @@ $routes->get('/admin/consulta','Admin::index');
 $routes->get('/admin/graficas','Admin::graficas');
 $routes->get('/admin/usuarios','Admin::usuarios');
 
-// consulta nacimientos 
+
+
+// consulta nacimientos Admin
+$routes->get('/admin/nacimiento/provincia','Admin::provincia_nac');
+$routes->post('/admin/nacimiento/provincia','Admin::provincia_nac');
+
+$routes->get('/admin/nacimiento/estado','Admin::estado_nac');
+$routes->post('/admin/nacimiento/estado','Admin::estado_nac');
+
+$routes->get('/admin/nacimiento/educacion','Admin::educacion_nac');
+$routes->post('/admin/nacimiento/educacion','Admin::educacion_nac');
+
+$routes->get('/admin/nacimiento/ocurrencia','Admin::ocurrencia_nac');
+$routes->post('/admin/nacimiento/ocurrencia','Admin::ocurrencia_nac');
+
+$routes->get('/admin/nacimiento/asistencia','Admin::asistencia_nac');
+$routes->post('/admin/nacimiento/asistencia','Admin::asistencia_nac');
+
+$routes->get('/admin/nacimiento/producto','Admin::producto_nac');
+$routes->post('/admin/nacimiento/producto','Admin::producto_nac');
+
+
+//consulta defunciones Admin
+$routes->get('/admin/defuncion/provincia','Admin::provincia_def');
+$routes->post('/admin/defuncion/provincia','Admin::provincia_def');
+
+$routes->get('/admin/defuncion/estado','Admin::estado_def');
+$routes->post('/admin/defuncion/estado','Admin::estado_def');
+
+$routes->get('/admin/defuncion/educacion','Admin::educacion_def');
+$routes->post('/admin/defuncion/educacion','Admin::educacion_def');
+
+
+$routes->get('/admin/defuncion/ocurrencia','Admin::ocurrencia_def');
+$routes->post('/admin/defuncion/ocurrencia','Admin::ocurrencia_def');
+
+$routes->get('/admin/defuncion/causa','Admin::causa_def');
+$routes->post('/admin/defuncion/causa','Admin::causa_def');
+
+$routes->get('/admin/defuncion/semana','Admin::semana_def');
+$routes->post('/admin/defuncion/semana','Admin::semana_def');
+
+
+
+
+
+// consulta nacimientos Usuarios
 $routes->get('/user/nacimiento/provincia','User::provincia_nac');
 $routes->post('/user/nacimiento/provincia','User::provincia_nac');
 
@@ -64,7 +110,7 @@ $routes->get('/user/nacimiento/producto','User::producto_nac');
 $routes->post('/user/nacimiento/producto','User::producto_nac');
 
 
-//consulta defunciones
+//consulta defunciones Usuarios
 $routes->get('/user/defuncion/provincia','User::provincia_def');
 $routes->post('/user/defuncion/provincia','User::provincia_def');
 

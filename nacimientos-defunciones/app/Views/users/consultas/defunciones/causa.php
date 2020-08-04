@@ -18,7 +18,7 @@
                 ?>
                 </select>
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="submit">CONSULTAR</button>
+                <button class="btn btn-outline-secondary" style="border-radius: 12px;" type="submit">CONSULTAR</button>
                 </div>
             </div>
             </form>

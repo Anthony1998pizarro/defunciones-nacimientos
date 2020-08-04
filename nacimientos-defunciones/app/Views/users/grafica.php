@@ -5,6 +5,7 @@
 <h1>GRAFICAS</h1>
 
 <h2>Nacimientos</h2>
+
 <div class="row">
 
   <div class="col-md-6">
