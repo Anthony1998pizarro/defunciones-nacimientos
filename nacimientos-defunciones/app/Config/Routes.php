@@ -66,6 +66,8 @@ $routes->post('/user/nacimiento/producto','User::producto_nac');
 
 //consulta defunciones
 $routes->get('/user/defuncion/provincia','User::provincia_def');
+$routes->post('/user/defuncion/provincia','User::provincia_def');
+
 $routes->get('/user/defuncion/estado','User::estado_def');
 $routes->get('/user/defuncion/educacion','User::educacion_def');
 $routes->get('/user/defuncion/ocurrencia','User::ocurrencia_def');
