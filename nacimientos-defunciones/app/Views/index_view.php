@@ -26,7 +26,7 @@
   <div class="my-2 my-lg-0">
   <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="home">INICAR SESION</a>
+        <a class="nav-link" href="#">INICAR SESION</a>
       </li>
     </ul>
 </div>
