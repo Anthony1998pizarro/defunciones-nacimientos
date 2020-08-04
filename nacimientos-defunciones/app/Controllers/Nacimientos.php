@@ -7,7 +7,7 @@ class Nacimientos extends BaseController
 	public function index()
 	{
 		$db = \Config\Database::connect();
-		$query= $db->query('select * from mv_nac limit 5000');
+		$query= $db->query('select * from mv_nac  limit 5000');
 		$result = $query->getResult();
 		return $this->response->setJSON($result);
 
@@ -16,18 +16,19 @@ class Nacimientos extends BaseController
   public function asistencias()
   {
     $db = \Config\Database::connect();
-		$query= $db->query('select * from mv_nac_asis limit 5000');
+		$query= $db->query('select * from mv_nac_asis');
 		$result = $query->getResult();
 
     $result = $query->getResult();
 		return $this->response->setJSON($result);
 
   }
-  
-  public function canton()
+
+  public function provincia($name)
   {
+    
     $db = \Config\Database::connect();
-		$query= $db->query('select * from mv_nac_canton limit 5000');
+		$query= $db->query('select * from mv_nac_canton cant where cant."Provincia" = \''.$name.'\'');
 		$result = $query->getResult();
 
     $result = $query->getResult();
@@ -38,7 +39,7 @@ class Nacimientos extends BaseController
   public function estadoCivil()
   {
     $db = \Config\Database::connect();
-		$query= $db->query('select * from mv_nac_est_civ limit 5000');
+		$query= $db->query('select * from mv_nac_est_civ ');
 		$result = $query->getResult();
 
     $result = $query->getResult();
@@ -49,7 +50,7 @@ class Nacimientos extends BaseController
   public function instruccion()
   {
     $db = \Config\Database::connect();
-		$query= $db->query('select * from mv_nac_inst limit 5000');
+		$query= $db->query('select * from mv_nac_inst');
 		$result = $query->getResult();
 
     $result = $query->getResult();
@@ -60,7 +61,7 @@ class Nacimientos extends BaseController
   public function ocurrencia()
   {
     $db = \Config\Database::connect();
-		$query= $db->query('select * from mv_nac_ocurrencia limit 5000');
+		$query= $db->query('select * from mv_nac_ocurrencia');
 		$result = $query->getResult();
 
     $result = $query->getResult();
@@ -71,7 +72,7 @@ class Nacimientos extends BaseController
   public function producto()
   {
     $db = \Config\Database::connect();
-		$query= $db->query('select * from mv_nac_prod_emb limit 5000');
+		$query= $db->query('select * from mv_nac_prod_emb');
 		$result = $query->getResult();
 
     $result = $query->getResult();
