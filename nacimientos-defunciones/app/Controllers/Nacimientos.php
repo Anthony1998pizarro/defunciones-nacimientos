@@ -24,11 +24,11 @@ class Nacimientos extends BaseController
 
   }
 
-  public function provincia($name)
+  public function provincia()
   {
     
     $db = \Config\Database::connect();
-		$query= $db->query('select * from mv_nac_canton cant where cant."Provincia" = \''.$name.'\'');
+		$query= $db->query('select cant."Provincia", count(cant."Nacidos") as "Nacidos" from mv_nac_canton cant group by cant."Provincia"');
 		$result = $query->getResult();
 
     $result = $query->getResult();

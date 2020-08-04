@@ -61,9 +61,9 @@ const defuncionesOcurrencia = document.querySelector('#defs-ocu');
 if (nacimientosCanton) {
   const prov = 'Pichincha';
   getData(`/nacimientos/provincia/${prov}`).then((res) => {
-    const labels = res.map((val) => val['Canton']);
+    const labels = res.map((val) => val['Provincia']);
     const values = res.map((val) => val.Nacidos);
-    draw({ labels, values }, nacimientosCanton, prov);
+    draw({ labels, values }, nacimientosCanton, 'Provincias', 'bar');
   });
 }
 
@@ -87,7 +87,7 @@ if (nacimientosInstruccion) {
   getData(`/nacimientos/instruccion`).then((res) => {
     const labels = res.map((val) => val['Nivel Insitucional']);
     const values = res.map((val) => val.Nacidos);
-    draw({ labels, values }, nacimientosInstruccion);
+    draw({ labels, values }, nacimientosInstruccion, 'Nivel eduacion', 'bar');
   });
 }
 
@@ -113,11 +113,11 @@ if (nacimientosProducto) {
 
 if (defuncionesCanton) {
   let prov = 'Azuay';
-  getData(`/defunciones/provincia/${prov}`).then((res) => {
-    const labels = res.map((val) => val['CANTON']);
-    const values = res.map((val) => +val.TOTAL);
+  getData(`/defunciones/provincia`).then((res) => {
+    const labels = res.map((val) => val['PROVINCIA']);
+    const values = res.map((val) => +val['Nacidos']);
 
-    draw({ labels, values }, defuncionesCanton);
+    draw({ labels, values }, defuncionesCanton, 'Provincias', 'bar');
   });
 }
 
@@ -129,7 +129,7 @@ if (defuncionesCausa) {
     const labels = res.map((val) => val['CAUSA FETAL']);
     const values = res.map((val) => +val.TOTAL);
 
-    draw({ labels, values }, defuncionesCausa);
+    draw({ labels, values }, defuncionesCausa, 'Causas');
   });
 }
 
@@ -138,7 +138,7 @@ if (defuncionesNivel) {
     const labels = res.map((val) => val['EDUCACION']);
     const values = res.map((val) => +val.TOTAL);
 
-    draw({ labels, values }, defuncionesNivel);
+    draw({ labels, values }, defuncionesNivel, 'nivel eduacion', 'bar');
   });
 }
 

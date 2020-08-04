@@ -11,9 +11,9 @@ class Defunciones extends BaseController
 		return $this->response->setJSON($result);
   }
 
-  public function provincia($name) {
+  public function provincia() {
     $db = \Config\Database::connect();
-		$query= $db->query('select * from vm_def_canton cant where cant."PROVINCIA" = \''.$name.'\'');
+		$query= $db->query('select cant."PROVINCIA", count(cant."TOTAL") as "Nacidos" from vm_def_canton cant group by cant."PROVINCIA";');
 		$result = $query->getResult();
 		return $this->response->setJSON($result);
   }
