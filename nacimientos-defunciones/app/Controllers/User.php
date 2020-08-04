@@ -46,6 +46,8 @@ class User extends BaseController
 
 
 
+    
+
     public  function educacion_nac()
     {
     $db = \Config\Database::connect();
@@ -73,6 +75,33 @@ class User extends BaseController
     }
     
 
+    public  function asistencia_nac()
+    {
+    $db = \Config\Database::connect();
+    $query= $db->query('SELECT  asistido_por FROM asistido_por order by asistido_por;');
+		$result = $query->getResult();
+     $data=[
+      'active'=>['active',''],
+      'results' => $result
+    ];
+    return view('users/consultas/nacimientos/asistencia',$data);
+    
+    }
+
+    public  function producto_nac()
+    {
+    $db = \Config\Database::connect();
+    $query= $db->query('SELECT producto FROM producto_emb ORDER by producto ;');
+		$result = $query->getResult();
+     $data=[
+      'active'=>['active',''],
+      'results' => $result
+    ];
+    return view('users/consultas/nacimientos/producto',$data);
+
+    }
+
+    
     public  function graficas()
     {
         $data=[

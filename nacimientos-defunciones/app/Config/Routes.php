@@ -49,6 +49,10 @@ $routes->get('/user/nacimiento/provincia','User::provincia_nac');
 $routes->get('/user/nacimiento/estado','User::estado_nac');
 $routes->get('/user/nacimiento/educacion','User::educacion_nac');
 $routes->get('/user/nacimiento/ocurrencia','User::ocurrencia_nac');
+$routes->get('/user/nacimiento/asistencia','User::asistencia_nac');
+$routes->get('/user/nacimiento/producto','User::producto_nac');
+
+
 
 /**
  * --------------------------------------------------------------------
