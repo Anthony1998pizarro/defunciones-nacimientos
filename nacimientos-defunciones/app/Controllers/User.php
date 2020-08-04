@@ -269,8 +269,31 @@ class User extends BaseController
 		$result = $query->getResult();
      $data=[
       'active'=>['active',''],
-      'results' => $result
+      'results' => $result,
+      'flag' => 0
     ];
+
+    if ($this->request->getMethod() === 'post') {
+      
+      $select=$this->request->getPost('ocurrencia');
+      $select = urldecode($select);
+      $query = $db->query('SELECT * FROM vm_def_canton_ocurrencia WHERE "OCURRENCIA"=\''.$select.'\';');
+
+      $template = [
+        'table_open' => '<table class="table table-hover my-3">',
+        'thead_open' => '<thead class="thead-dark">',
+      ];
+
+      $table = new \CodeIgniter\View\Table($template);
+      $table = $table->generate($query);
+
+      $data+=[
+        'ocurrencia' => $select,
+        'table'=> $table
+      ];
+      $data['flag']=1;
+    }
+
     return view('users/consultas/defunciones/ocurrencia',$data);
     
     }
