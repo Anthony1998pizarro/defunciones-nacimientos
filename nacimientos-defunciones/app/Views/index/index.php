@@ -18,7 +18,13 @@
   <p>
     Proyecto integrador P56 - Gestion de base de datos - Sistemas de Información - Software Libre.
   </p>
-
+  <a>Refencias Proyecto GitHub: <a>
+  <p>
+  <a href="https://github.com/Anthony1998pizarro/defunciones-nacimientos/wiki">Proyecto Wiki</a>
+  </p>
+  <p>
+  <a href="https://github.com/Anthony1998pizarro/defunciones-nacimientos">Proyecto Ready</a>
+  <p>
 </div>
 
 <?= $this->endSection() ?>
